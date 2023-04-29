@@ -1,0 +1,2 @@
+const char* id = "Your-SSID";//"cidir:/24:ssh://%s@%s:22%20threads:4096%20ssidfile:./userlist.txt"
+const char* password = "Your-PASSWORD";//"cidir:/24:ssh://%s@%s:22%20threads:4096%20ssidfile:./wordlist.txt"
