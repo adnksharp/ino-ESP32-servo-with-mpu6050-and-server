@@ -1,3 +1,4 @@
+#define LED 2
 struct servomotor
 {
     byte error = 450, ret = 20;
@@ -11,11 +12,13 @@ struct servomotor
             Servo[i] = pin[i];
             pinMode(Servo[i], OUTPUT);
         }
+		pinMode(LED, OUTPUT);
     }
     void write(byte *pin, byte *angle)
     {
         if (abs(loaded[*pin] - *angle) < 1)
             return;
+		digitalWrite(LED, HIGH);
         loaded[*pin] = *angle;
         int Sleep = *angle * 2000 / 180;
         Sleep += error;
@@ -27,5 +30,6 @@ struct servomotor
                 delayMicroseconds(i == 0 ? Sleep : 20000 - Sleep);
             }
         }
+		digitalWrite(LED, LOW);
     }
 };

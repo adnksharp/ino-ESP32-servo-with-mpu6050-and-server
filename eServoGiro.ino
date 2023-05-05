@@ -52,7 +52,8 @@ void setup()
 
 void loop()
 {
-	gyro.updates(ANGLE);
+	if (iot.lock)
+		gyro.updates(ANGLE);
 	for (byte i = 0; i < 3; i++)
 	{
 		float cache = ANGLE[i] * 180 / M_PI;

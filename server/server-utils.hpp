@@ -33,6 +33,11 @@ struct SERVER
                 iot.value[i] = value[i].toFloat();
             request->send(200, "text/plain", "OK"); });
 
+        server.on("/lock", HTTP_GET, [](AsyncWebServerRequest *request)
+                  {
+            iot.lock = !iot.lock;
+            request->send(200, "text/plain", "OK"); });
+
         server.onNotFound([](AsyncWebServerRequest *request)
                           { request->redirect("/"); });
     }

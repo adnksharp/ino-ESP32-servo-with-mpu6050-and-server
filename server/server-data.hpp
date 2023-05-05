@@ -17,26 +17,87 @@ const char htmlindex[] PROGMEM = R"rawliteral(
             background-image: linear-gradient(180deg, #202124 0%, #010101 100%);
         }
 
+        button p {
+            background-image: linear-gradient(35deg, #44baff 0%, #00ffd5 100%);
+            font-size: 2em;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        button {
+            position: absolute;
+            border: none;
+            background-image: linear-gradient(35deg, #000000 0%, #242527 100%);
+            outline: none;
+            cursor: pointer;
+            top: 5vh;
+        }
+
+        button:hover {
+            background-image: linear-gradient(35deg, #000000 0%, #000000 100%);
+        }
+
+        button:active {
+            background-image: linear-gradient(35deg, #447fff 0%, #00ff9d 100%);
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            main {
+                height: 40vh;
+                max-height: 20vw;
+                border-radius: 3vw;
+                width: 80vw;
+                left: 10vw;
+                top: 30vh;
+            }
+
+            button {
+                font-size: 1.4rem;
+                padding: 2vh 8vw;
+                border-radius: 1vw;
+            }
+
+            #containers {
+                font-size: 3rem;
+                width: 85%;
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            main {
+                height: 40vh;
+                max-height: 20vw;
+                border-radius: 3vw;
+                width: 30vw;
+                left: 35vw;
+                top: 30vh;
+            }
+
+            button {
+                padding: 2vh 2vw;
+                border-radius: 1vw;
+            }
+
+            #containers {
+                font-size: 1.3rem;
+                width: 60%;
+            }
+        }
+
         main {
             position: absolute;
-            height: 40vh;
-            max-height: 20vw;
-            border-radius: 3vh;
-            width: 30vw;
-            left: 35vw;
-            top: 30vh;
             background-color: white;
         }
 
         #containers {
-            font-size: 1.3rem;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            width: 60%;
         }
 
+        body, 
         main,
+        button,
         #containers div {
             display: flex;
             flex-direction: column;
@@ -75,10 +136,22 @@ const char htmlindex[] PROGMEM = R"rawliteral(
                 }
             }, 100)
         }
+        function lock() {
+            var xobj = new XMLHttpRequest()
+            xobj.overrideMimeType("text/json")
+            xobj.open("get", "/lock", false)
+            xobj.send(null)
+            console.log(xobj.responseText)
+        }
     </script>
 </head>
 
 <body onload="run()">
+    <button onclick="lock()">
+        <p>
+            >>>
+        </p>
+    </button>
     <main>
         <h1>Giroscopio</h1>
         <div id="containers">
