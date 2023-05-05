@@ -71,5 +71,5 @@ Para actualizar los datos de la página web, se crea una interfaz XMLHttpRequest
 
 ## Créditos
 - [ESP32 Servo Control](https://randomnerdtutorials.com/esp32-servo-motor-web-server-arduino-ide/)
-- [ESP32 Web Server](https://randomnerdtutorials.com/esp32-web-server-spiffs-spi-flash-file-system/)
-- [MPU6050](https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050/examples/MPU6050_DMP6)
+- [ESP32 Web Server](https://randomnerdtutorials.com/esp32-async-web-server-espasyncwebserver-library/)
+- [MPU6050](https://github.com/jrowberg/i2cdevlib/blob/master/Arduino/MPU6050/examples/MPU6050_DMP6/MPU6050_DMP6.ino)
